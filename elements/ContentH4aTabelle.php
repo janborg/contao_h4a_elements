@@ -57,34 +57,26 @@ class ContentH4aTabelle extends \ContentElement
     private function genFeOutput()
     {
         $type = 'liga';
-        $liga_url = Helper::getURL($type,$this->h4a_liga_ID);
+        $liga_url = Helper::getURL($type, $this->h4a_liga_ID);
         $strCacheFile = Helper::getCachedFile($this->h4a_liga_ID);
 
-		// Load the cached result
-        if (file_exists(TL_ROOT . '/' . $strCacheFile))
-        {
+        // Load the cached result
+        if (file_exists(TL_ROOT . '/' . $strCacheFile)) {
             $objFile = new \File($strCacheFile);
-            if ($objFile->mtime > time() - 60*60*6)
-            {
+            if ($objFile->mtime > time() - 60 * 60 * 6) {
                 $arrResult = json_decode($objFile->getContent(), true);
-				$lastUpdate = $objFile->mtime;
-            }
-            else
-            {
+                $lastUpdate = $objFile->mtime;
+            } else {
                 $objFile->delete();
             }
         }
 
-		// Cache the result
-        if ($arrResult === null)
-        {
-            try
-            {
+        // Cache the result
+        if ($arrResult === null) {
+            try {
                 $arrResult = json_decode(file_get_contents($liga_url), true);
-				$lastUpdate = time();
-            }
-            catch (\Exception $e)
-            {
+                $lastUpdate = time();
+            } catch (\Exception $e) {
                 System::log('h4a update failed: ' . $e->getMessage(), __METHOD__, TL_ERROR);
                 $arrResult = array();
             }
@@ -99,6 +91,6 @@ class ContentH4aTabelle extends \ContentElement
         $this->Template->class = 'ce_h4a_tabelle';
         $this->Template->teams = $arrResult[0]['dataList'];
         $this->Template->myTeam = $this->my_team_name;
-		$this->Template->lastUpdate = $lastUpdate;
+        $this->Template->lastUpdate = $lastUpdate;
     }
 }

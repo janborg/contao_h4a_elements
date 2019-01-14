@@ -14,16 +14,16 @@
                 <th>Gast</th>
                 <th style="text-align:center">Ergebnis</th>
             </tr>
-            <?php foreach($this->spiele as $spiel): ?>
+            <?php foreach ($this->spiele as $spiel): ?>
             <tr>
                 <td><?=$spiel["gDate"] ?></td>
                 <td><?=$spiel["gTime"]." Uhr" ?></td>
                 <td><?=$spiel["gGymnasiumName"] ?></td>
-                <td <?php if($spiel["gHomeTeam"]==$this->myTeam): ?>class="myteam"<?php endif ?>><?=$spiel["gHomeTeam"] ?></td>
-                <td <?php if($spiel["gGuestTeam"]==$this->myTeam): ?>class="myteam"<?php endif ?>><?=$spiel["gGuestTeam"] ?></td>
+                <td <?php if ($spiel["gHomeTeam"] == $this->myTeam): ?>class="myteam"<?php endif ?>><?=$spiel["gHomeTeam"] ?></td>
+                <td <?php if ($spiel["gGuestTeam"] == $this->myTeam): ?>class="myteam"<?php endif ?>><?=$spiel["gGuestTeam"] ?></td>
                 <td style="text-align:center">
                     <?php
-                        if($spiel["gHomeGoals"]==" "):
+                        if ($spiel["gHomeGoals"] == " "):
                             echo " " ;
                         else:
                             echo $spiel["gHomeGoals"]." : ".$spiel["gGuestGoals"];

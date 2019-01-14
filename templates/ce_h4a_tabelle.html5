@@ -15,8 +15,8 @@
                 <th style="text-align:center">Tore</th>
                 <th style="text-align:center">Punkte</th>
             </tr>
-            <?php foreach($this->teams as $team): ?>
-            <tr <?php if($team["tabTeamname"]==$this->myTeam): ?> class="myteam"<?php endif ?>>
+            <?php foreach ($this->teams as $team): ?>
+            <tr <?php if ($team["tabTeamname"] == $this->myTeam): ?> class="myteam"<?php endif ?>>
                 <td style="text-align:center"><?=$team["tabScore"] ?></td>
                 <td style="text-align:left"><?=$team["tabTeamname"] ?></td>
                 <td style="text-align:center"><?=$team["numPlayedGames"] ?></td>
