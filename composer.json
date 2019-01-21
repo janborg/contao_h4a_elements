@@ -2,7 +2,7 @@
     "name": "janborg/contao_h4a_elements",
     "description": "Elemente mit Tabellen ud Spielübersicht aus Handball4all für Contao Open Source CMS",
     "keywords": ["contao", "Tabellen", "Spiele", "Handball"],
-    "type": "contao-extension",
+    "type": "contao-module",
     "license": "LGPL-3.0+",
     "authors": [
         {
